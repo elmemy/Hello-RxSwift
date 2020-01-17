@@ -1,24 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YoG-u0-i6z">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--RxSwift-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Hello_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Only Favourite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9k-sk-1oB">
+                                <rect key="frame" x="20" y="108" width="158" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JfM-Bl-gc7">
+                                <rect key="frame" x="198" y="104.5" width="51" height="31"/>
+                            </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zne-q8-lWY">
+                                <rect key="frame" x="198" y="148" width="196" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7lT-S2-QJK">
+                                <rect key="frame" x="10" y="232" width="394" height="664"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StockCell" rowHeight="56" id="ktj-yX-zZ8" customClass="StockCell" customModule="Hello_RxSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ktj-yX-zZ8" id="Efm-Xh-qjo">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4t-va-ICx">
+                                                    <rect key="frame" x="40" y="16" width="51" height="24"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SS5-QM-H23">
+                                                    <rect key="frame" x="316" y="16" width="38" height="24"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="b4t-va-ICx" firstAttribute="leading" secondItem="Efm-Xh-qjo" secondAttribute="leadingMargin" constant="20" id="W8S-kc-0ng"/>
+                                                <constraint firstItem="b4t-va-ICx" firstAttribute="centerY" secondItem="SS5-QM-H23" secondAttribute="centerY" id="bSB-q7-RFN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SS5-QM-H23" secondAttribute="trailing" constant="20" id="wBu-bO-iB1"/>
+                                                <constraint firstItem="SS5-QM-H23" firstAttribute="centerY" secondItem="Efm-Xh-qjo" secondAttribute="centerY" id="wNK-Wl-k99"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="currentPrice" destination="SS5-QM-H23" id="8w9-qx-PPK"/>
+                                            <outlet property="stockSymbol" destination="b4t-va-ICx" id="l43-2x-Zj5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="f9U-yz-A2m"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="NT9-g1-7ES"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgR-JG-VFs">
+                                <rect key="frame" x="20" y="153" width="51" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7lT-S2-QJK" secondAttribute="trailing" constant="10" id="1Ym-79-ALW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CgR-JG-VFs" secondAttribute="trailing" symbolic="YES" id="2Vo-DR-h1H"/>
+                            <constraint firstItem="Zne-q8-lWY" firstAttribute="centerY" secondItem="CgR-JG-VFs" secondAttribute="centerY" id="3bt-kG-DgN"/>
+                            <constraint firstItem="U9k-sk-1oB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7jk-qx-gYb"/>
+                            <constraint firstItem="U9k-sk-1oB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="KYS-QY-H3N"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7lT-S2-QJK" secondAttribute="bottom" constant="-34" id="Mm0-d2-gbg"/>
+                            <constraint firstItem="Zne-q8-lWY" firstAttribute="leading" secondItem="JfM-Bl-gc7" secondAttribute="leading" id="UAx-Bb-Yhi"/>
+                            <constraint firstItem="7lT-S2-QJK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="XEY-J7-EeD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zne-q8-lWY" secondAttribute="trailing" constant="20" id="kPl-QK-3Q3"/>
+                            <constraint firstItem="JfM-Bl-gc7" firstAttribute="centerY" secondItem="U9k-sk-1oB" secondAttribute="centerY" id="ljh-av-8Dc"/>
+                            <constraint firstItem="7lT-S2-QJK" firstAttribute="top" secondItem="Zne-q8-lWY" secondAttribute="bottom" constant="50" id="mDS-z5-HBc"/>
+                            <constraint firstItem="CgR-JG-VFs" firstAttribute="leading" secondItem="U9k-sk-1oB" secondAttribute="leading" id="mhl-pr-V7Z"/>
+                            <constraint firstItem="JfM-Bl-gc7" firstAttribute="leading" secondItem="U9k-sk-1oB" secondAttribute="trailing" constant="20" id="vcw-lp-gbw"/>
+                            <constraint firstItem="CgR-JG-VFs" firstAttribute="top" secondItem="U9k-sk-1oB" secondAttribute="bottom" constant="21" id="zCk-l6-dB1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="RxSwift" id="hp9-6C-FId"/>
+                    <connections>
+                        <outlet property="favouriteSwitch" destination="JfM-Bl-gc7" id="CCb-N1-mwz"/>
+                        <outlet property="searchTerm" destination="Zne-q8-lWY" id="81p-bp-dWI"/>
+                        <outlet property="tableview" destination="7lT-S2-QJK" id="RcI-Ld-qy5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="511.59420289855075" y="97.767857142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WgR-5Y-QdI">
+            <objects>
+                <navigationController id="YoG-u0-i6z" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6RO-2z-RGO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="RWu-dG-iqg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k1t-oq-PQg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-387" y="99"/>
         </scene>
     </scenes>
 </document>
